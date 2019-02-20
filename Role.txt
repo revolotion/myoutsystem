@@ -1,0 +1,14 @@
+CheckAssignedRole(GetRoleIdByName("DocumentController"),GetUserId()) 
+or CheckAssignedRole(GetRoleIdByName("Author"),GetUserId())
+or CheckAssignedRole(GetRoleIdByName("Administrator"),GetUserId())
+or CheckAssignedRole(GetRoleIdByName("InternalReviewer"),GetUserId())
+or CheckAssignedRole(GetRoleIdByName("SquadCheckReviewer"),GetUserId())
+or CheckAssignedRole(GetRoleIdByName("Ext_ProjectManager"),GetUserId())
+CheckAssignedRole(GetRoleIdByName("CARAdministrator"),GetUserId())
+
+
+
+ If(CheckAssignedRole(GetRoleIdByName("DocumentController"),GetUserId()) 
+    or  CheckAssignedRole(GetRoleIdByName("Administrator"),GetUserId()),
+Contractors.CreatedBy like "%" + Session.Contractors_SearchKeyword + "%",Contractors.CreatedBy=GetUserId()    
+    )
